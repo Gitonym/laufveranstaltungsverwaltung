@@ -2,3 +2,4 @@ xampp start
 localhost/phpmyadmin
 npm run devStart
 curl -X POST http://localhost:4000/api/submit/lauf1/1/end
+t
