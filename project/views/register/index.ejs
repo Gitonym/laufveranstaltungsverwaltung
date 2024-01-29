@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrieren</title>
+</head>
+<body>
+    <h3 class="mb-3">Registrieren</h3>
+    <form action="/register" method="POST">
+
+        <!--username-->
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" id="username" name="username" placeholder="Benutzername" required>
+            <label class="form-label" for="username">Benutzername</label>
+        </div>
+
+        <!--firstname-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="firstname" type="text" name="firstname" placeholder="Vorname" required>
+            <label class="form-label" for="firstname">Vorname</label>
+        </div>
+
+        <!--lastname-->
+        <div class="form-floating">
+            <input class="form-control mb-3" id="lastname" type="text" name="lastname" placeholder="Nachname" required>
+            <label class="form-label" for="lastname">Nachname</label>
+        </div>
+
+        <!--password-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="password" type="password" name="password" placeholder="Passwort" required>
+            <label class="form-label" for="password">Passwort</label>
+        </div>
+
+        <!--password2-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="password2" type="password" name="password2" placeholder="Passwort" required>
+            <label class="form-label" for="password2">Passwort widerholen</label>
+        </div>
+
+        <!--birthdate-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="birthdate" type="date" name="date" required>
+            <label class="form-label" for="birthdate">Geburtsdatum</label>
+        </div>
+
+        <!--address-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="address" type="text" name="address" placeholder="Adresse" required>
+            <label class="form-label" for="address">Adresse</label>
+        </div>
+
+        <!--email-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="email" type="email" name="email" placeholder="eMail" required>
+            <label class="form-label" for="email">E-Mail</label>
+        </div>
+
+        <!--mobile-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="mobile" type="text" name="mobile" placeholder="Mobil" required>
+            <label class="form-label" for="mobile">Mobil</label>
+        </div>
+
+        <!--submit-->
+        <input class="btn btn-primary" type="submit" value="Registrieren">
+    </form>
+</body>
+</html>

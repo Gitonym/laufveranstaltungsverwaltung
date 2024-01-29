@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laufveranstaltung</title>
+</head>
+<body>
+    <div class="card">
+        <h5 class="card-header"><%=event.name%></h5>
+        <div class="card-body">
+            <ul class="list-group-flush">
+                <!--starttime-->
+                <li class="list-group-item">
+                    <div class="row">
+                        <label class="col-2" for="">Startzeit</label>
+                        <label class="col-10" for=""><%=new Date(event.startdate).toLocaleDateString() + " - " + event.starttime%></label>
+                    </div>
+                </li>
+
+                <!--distance-->
+                <li class="list-group-item">
+                    <div class="row">
+                        <label class="col-2" for="">Distanz</label>
+                        <label class="col-10" for=""><%=event.distance + " km"%></label>
+                    </div>
+                </li>
+
+                <!--startdescription-->
+                <li class="list-group-item">
+                    <div class="row">
+                        <label class="col-2" for="">Startort</label>
+                        <label class="col-10" for=""><a href='https://www.google.com/maps/place/<%=event.startlatitude%>,<%=event.startlongitude%>' target="_blank"><%=event.startdescription%></a></label>
+                    </div>
+                </li>
+
+                <!--fee-->
+                <li class="list-group-item">
+                    <div class="row">
+                        <label class="col-2" for="">Startgebuehr</label>
+                        <label class="col-10" for=""><%=event.fee + " Euro"%></label>
+                    </div>
+                </li>
+
+                <!--startNumber-->
+                <% if (registered && startNumber != null) { %>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <label class="col-2" for="">Startnummer</label>
+                            <label class="col-10" for="">#<%=startNumber%></label>
+                        </div>
+                    </li>
+                <% } %>
+
+                <!--controls-->
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+
+                        <!--show register only when logged in and not registered-->
+                        <% if (!registered && user) { %>
+                            <form action="/events/<%=event.name%>/register" method="POST">
+                                <input class="btn btn-outline-primary" type="submit" value="Anmelden">
+                            </form>
+                        <% } %>
+
+                        <!--show deregister only when logged in and registered-->
+                        <% if (registered && user) { %>
+                            <form action="/events/<%=event.name%>/deregister" method="POST">
+                                <input class="btn btn-outline-danger" type="submit" value="Abmelden">
+                            </form>
+
+                            <!--create certificate-->
+                            <form action="/events/<%=event.name%>/certificate" method="GET">
+                                <input class="btn btn-outline-primary" type="submit" value="Urkunde Anzeigen">
+                            </form>
+
+                            <!--not paid-->
+                            <% if (!eventRegistration.paid) { %>
+                                <form action="/events/<%=event.name%>/pay" method="POST">
+                                    <input class="btn btn-outline-primary" type="submit" value="Bezahlen">
+                                </form>
+                            <% } %>
+                        <% } %>
+
+                        <form action="/events/<%=event.name%>/participants">
+                            <input class="btn btn-outline-primary" type="submit" value="Teilnehmerliste">
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

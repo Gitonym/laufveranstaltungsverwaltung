@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verein</title>
+</head>
+<body>
+    <h3>Verein</h3>
+    <h5><%=club.name%></h5>
+    <p><%=club.description%></p>
+    <h5>Mitglieder</h5>
+    <ul class="button-list">
+        <% clubmemberships.forEach(clubmembership => { %>
+            <a class="button-link" href="/profile/<%=clubmembership.user%>"><%=clubmembership.user%></a>
+        <% }); %>
+    </ul>
+</body>
+</html>

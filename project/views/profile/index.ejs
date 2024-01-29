@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><br>
+    <div class="h1">Hallo, <%=profile.firstname.charAt(0).toUpperCase() + profile.firstname.slice(1)%></div>
+    
+    <ul class="list-group-flush">
+        <!--username-->
+        <li class="list-group-item">
+            <div class="row">
+                <label class="col-2" for="">Benutzername</label>
+                <label class="col-10" for=""><%=profile.username%></label>
+            </div>
+        </li>
+
+        <!--firstname-->
+        <li class="list-group-item">
+            <div class="row">
+                <label class="col-2" for="">Vorname</label>
+                <label class="col-10" for=""><%=profile.firstname%></label>
+            </div>
+        </li>
+        
+        <!--lastname-->
+        <li class="list-group-item">
+            <div class="row">
+                <label class="col-2" for="">Nachname</label>
+                <label class="col-10" for=""><%=profile.lastname%></label>
+            </div>
+        </li>
+        
+        <!--birthdate-->
+        <li class="list-group-item">
+            <div class="row">
+                <label class="col-2" for="">Geburtsdatum</label>
+                <label class="col-10" for=""><%=new Date(profile.birthday).toLocaleDateString()%></label>
+            </div>
+        </li>
+        
+        <!--email-->
+        <li class="list-group-item">
+            <div class="row">
+                <label class="col-2" for="">E-Mail</label>
+                <label class="col-10" for=""><%=profile.email%></label>
+            </div>
+        </li>
+        
+        <!--mobile-->
+        <li class="list-group-item">
+            <div class="row">
+                <label class="col-2" for="">Mobil</label>
+                <label class="col-10" for=""><%=profile.mobile%></label>
+            </div>
+        </li>
+    </ul>
+    <br><br>
+
+    <!--registered events-->
+    <h3>Angemeldete Laufveranstaltungen</h3>
+    <ul class="list-group-flush">
+        <% eventregistrations.forEach(eventregistration => { %>
+            <li class="list-group-item">
+                <a class="nav-link" href="/events/<%=eventregistration.event%>"><%= eventregistration.event %></a>
+            </li>
+        <% }) %>
+    </ul>
+    <br><br>
+
+    <!--registered clubs-->
+    <h3>Beigetretene Vereine</h3>
+    <ul class="list-group-flush">
+        <% clubmemberships.forEach(clubmembership => { %>
+        <li class="list-group-item">
+            <a class="nav-link" href="/clubs/<%=clubmembership.club%>"><%= clubmembership.club %></a>
+        </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

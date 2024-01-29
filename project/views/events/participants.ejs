@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teilnehmer</title>
+</head>
+<body>
+    <h3>Teilnehmer</h3>
+    <ul class="list-group-flush">
+        <% participants.forEach(participant => { %>
+            <!--get user time-->
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                    <label for="" class="form-label"><%= participant.user %></label>
+                    <label for="" class="form-label">#<%= participant.startNumber %></label>
+                    <label for="" class="form-label">Zwischenzeit: <%= new Date(participant.splitTime).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }) %></label>
+                    <label for="" class="form-label">Endzeit: <%= new Date(participant.finishTime).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }) %></label>
+                    <!-- only show disqualify button for admin-->
+                    <% if (user && user.isAdmin) { %>
+                        <form method="POST" action="/events/<%=event%>/<%=participant.user%>/disqualify">
+                            <input class="btn btn-outline-danger" type="submit" value="Disqualifizieren">
+                        </form>
+                    <% } %>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

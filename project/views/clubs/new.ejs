@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuer Verein</title>
+</head>
+<body>
+    <h3>Neuen Verein erstellen</h3>
+    <form action="/clubs/new" method="POST">
+        <!--name-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="name" type="text" name="name" placeholder="Name" required>
+            <label class="form-label" for="name">Vereinsname</label>
+        </div>
+
+        <!--description-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="description" type="text" name="description" placeholder="Beschreibung" required>
+            <label class="form-label" for="description">Beschreibung</label>
+        </div>
+
+        <!--submit-->
+        <input class="btn btn-primary" type="submit" value="Neuen Verein anlegen">
+    </form>
+</body>
+</html>

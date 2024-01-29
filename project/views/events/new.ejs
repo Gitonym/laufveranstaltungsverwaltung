@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neue Laufveranstaltung</title>
+</head>
+<body>
+    <h3 class="mb-3">Neue Laufveranstaltung</h3>
+
+    <form action="/events/new" method="POST">
+        <!--name-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="name" type="text" name="name" placeholder="Name" required>
+            <label class="form-label" for="name">Name der Laufveranstaltung</label>
+        </div>
+
+        <!--distance-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="distance" type="number" name="distance" placeholder="Distanz" required>
+            <label class="form-label" for="distance">Distanz</label>
+        </div>
+
+        <!--startdescription-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="startdescription" type="text" name="startdescription" placeholder="Startort" required>
+            <label class="form-label" for="startdescription">Startort</label>
+        </div>
+
+        <!--startlatitude-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="startlatitude" type="text" name="startlatitude" placeholder="Start Latitude" required>
+            <label class="form-label" for="startlatitude">Start Latitude</label>
+        </div>
+
+        <!--startlongitude-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="startlongitude" type="text" name="startlongitude" placeholder="Start Longitude" required>
+            <label class="form-label" for="startlongitude">Start Longitude</label>
+        </div>
+
+        <!--starttime-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="starttime" type="time" name="starttime" placeholder="Startzeit" required>
+            <label class="form-label" for="starttime">Startzeit</label>
+        </div>
+
+        <!--startdate-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="startdate" type="date" name="startdate" placeholder="Startdatum" required>
+            <label class="form-label" for="startdate">Startdatum</label>
+        </div>
+
+        <!--fee-->
+        <div class="form-floating mb-3">
+            <input class="form-control" id="fee" type="number" name="fee" placeholder="Startgebuehr" required>
+            <label class="form-label" for="fee">Startgebuehr</label>
+        </div>
+
+        <!--submit-->
+        <input class="btn btn-primary" type="submit" value="Laufveranstaltung anlegen">
+    </form>
+</body>
+</html>

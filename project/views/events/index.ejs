@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laufveranstaltungen</title>
+</head>
+<body>
+    <h3>Anstehende Laufveranstaltungen</h3>
+    <ul class="list-group-flush">
+        <% events.forEach(event => { %>
+            <li class="list-group-item">
+                <a class="nav-link" href="/events/<%=event.name%>"><%=event.name%></a>
+            </li>
+        <% }) %>
+    </ul>
+    <% if (user && user.isAdmin) { %>
+        <a class="btn btn-outline-primary" href="/events/new">Neue Laufveranstaltung anlegen</a>
+    <% } %>
+</body>
+</html>

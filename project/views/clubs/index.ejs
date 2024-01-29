@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vereine</title>
+</head>
+<body>
+    <h3>Vereine</h3>
+    <ul class="list-group-flush">
+        <% clubs.forEach(club => { %>
+            <li class="list-group-item">
+                <a class="nav-link" href="/clubs/<%=club.name%>"><%=club.name%></a>
+            </li>
+        <% }) %>
+    </ul>
+    
+    <!--new club only for admins-->
+    <% if (user && user.isAdmin) { %>
+        <a class="btn btn-outline-primary" href="/clubs/new">Neuen Verein anlegen</a>
+    <% } %>
+</body>
+</html>
